@@ -44,3 +44,21 @@ Media has to be hosted somewhere else - fortunately this is fairly easy via the
 * Activate the "WP Read-only" plugin. Configure it and add your s3 key, secret,
   and bucket values.
 * Test media uploads by visiting the library and uploading a file. 
+
+## A deployment strategy for multiple domains
+
+* Fork this repository.
+* Create a separate branch for each site. '''git branch foo.example.com origin/foo.example.com'''
+* Create a separate heroku remote for each site that will be linked to the branches you created above. '''git remote add foo.example.com git@heroku.com:your-heroku-remote.git'''
+* Make the site specific changes on the branch you created above.
+* Push this branch to your heroku remote as master. '''git push foo.example.com foo.example.com:master'''
+
+When you need to update off master (which should contain only the wordpress
+core), change into your branch and rebase against master.
+
+## Credits
+
+* The wordpress community
+* Heroku
+* Dan Collis-Puro - dan@collispuro.net
+
